@@ -3,8 +3,8 @@ import re
 class Solution(object):
     def collaborativeFiltering(self, user):
         """
-        input: str
-        return: str
+        input: user(str)
+        return: sorted user similarity(str)
         """
         # omit null input
         if not user:
@@ -33,8 +33,8 @@ class Solution(object):
 
     def countUserAndFeature(self, user):
         """
-        input: str
-        return: two non-negative integers
+        input: user(str)
+        return: number of users, number of features(two non-negative integers)
         """
         N, M = 0, 0
         for i in range(len(user)):
@@ -45,6 +45,10 @@ class Solution(object):
         return N, int(M / N + 1)
 
     def userInfoDict(self, user, Nu, Nf):
+        """
+        input: user(str), number of users, number of features
+        return: an unsorted user name list, a user dictionary with user names as key and preferences in list as value
+        """
         userDict = {}
         nameList = []
         # remove : and , ,then remove \n to construct name list and user dictionary
@@ -73,6 +77,10 @@ class Solution(object):
         return nameList,userDict
 
     def rankBaseDict(self, Nf, nameList, userDict):
+        """
+        input: number of features, user name list, a user dictionary with user names as key and preferences in list as value
+        return: a dictionary with features as key and ranks of the first user as value
+        """
         rankBaseDict=dict()
         userRankBase=userDict[nameList[0]]
         #print(userRankBase)
@@ -82,6 +90,14 @@ class Solution(object):
         return rankBaseDict
 
     def inversionDict(self, Nf, userDict, rankBaseDict):
+        """
+        input:
+        number of features,
+        a user dictionary with user names as key and preferences in list as value,
+        a dictionary with features as key and ranks of the first user as value
+        return:
+        a dictionary with user names as key and inversions as value
+        """
         inversionDict=dict()
         for name,rank in userDict.items():
             inversion = 0
@@ -94,6 +110,15 @@ class Solution(object):
         return inversionDict
 
     def sortNameList(self, Nu, inversionDict, nameList):
+        """
+        input:
+        number of users,
+        a dictionary with user names as key and inversions as value,
+        a user dictionary with user names as key and preferences in list as value,
+        an unsorted user name list
+        return:
+        None
+        """
         for i in range(Nu-1,1,-1):
             for j in range(1, i):
                 k=j+1
