@@ -1,6 +1,5 @@
 # Collaborative-Filtering-Challenge
-This is a difficult python coding problem in the context of recommender system and collaborative filtering (AI & Machine Learning)
-Collaborative Filtering
+This is a difficult python coding problem in the context of recommender system and collaborative filtering (AI & Machine Learning).
 A Recommender System is capable of predicting the preferences of an active user for a set of items. For example, an online store can suggest a product to the shopper based on a history of purchases or page views.
 One of the traditional approaches to construct such a system is to use Collaborative Filtering. It does not require any information about the items themselves and makes recommendations based on the past behavior of many users.
 Usually, collaborative filtering can be reduced to two steps:
