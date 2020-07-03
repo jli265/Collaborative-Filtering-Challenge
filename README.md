@@ -6,6 +6,7 @@ One of the traditional approaches to construct such a system is to use Collabora
 Usually, collaborative filtering can be reduced to two steps:
 1.	Look for users with similar interests as the active user
 2.	Use ratings from the other users identified above to make a prediction for the active user
+
 Your task is to implement the first step using the number of inversions in the lists of user ratings as a numerical similarity measure.
 An Inversion is a pair of elements (Si,Sj) of the sequence, such that i < j and Si > Sj. For example, sorted array (1,2,3,4,5) has zero inversions. Array (5,1,2,3,4) has four inversions (5,1), (5,2), (5,3), (5,4). Array (1,3,5,2,4) has three inversions (3,2), (5,2), (5,4). The maximum possible number of inversions in the array with n elements is n(n-1)/2.
 Suppose we asked several people to rank three music genres. Now, we can form lists with ratings for each person from the most favorite genre to the least favorite. See the input description below for an example.
@@ -19,6 +20,10 @@ John:Jazz,Blues,Rock
 output：
 Print the list of users to be considered for making a recommendation. The list must be sorted by the number of inversions in ascending order. If two users have the same count of inversions sort them alphabetically. For example:
 Alice,John
+
+
+
+
 Here I provide some test cases and correct outputs with my algorithms:
 testSolution = Solution()
 case0 = '''
